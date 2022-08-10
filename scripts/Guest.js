@@ -7,27 +7,22 @@ This module will
 */
 
 import { getGuests } from "./database.js";
-import { getServices } from "./database.js";
+import { getServicesName } from "./database.js";
 
 //declare variable to store getGuests.
 
 const guestsObject = getGuests();
-const servicesObject = getServices()
+const servicesObject = getServicesName()
 
 
 export const Guests = () => {
-    let html = `<div class='ciderFalls__guest'>`
+    let html = `<ul>`
 
     for (const guest of guestsObject) {
-        html += `<h2>${guest.name}</h2>
-        <h4>Phone:  ${guest.phone}</h4>
-        <h4>email:  ${guest.email}</h4>
-        <ul>`
-        for (const service of servicesObject) {
-            if (service.id === guest.serviceId)
-                `<li>${service.name}</li</ul`
-        }
-        html += `</div>`
+        html += `<li><h4>${guest.name}</h4></li>`
+
+
     }
+    html += `</ul>`
     return html
 }
