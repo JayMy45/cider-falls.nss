@@ -14,16 +14,16 @@ const database = {
     ],
 
     guests: [
-        { id: 1, name: 'Deaquanita Harris' },
-        { id: 2, name: 'Curtis Jackson' },
-        { id: 3, name: 'Robinson Vilmont' },
-        { id: 4, name: 'Jeremia Henderson' },
-        { id: 5, name: 'OShea Jackson' },
-        { id: 6, name: 'Andre Benjamin' },
-        { id: 7, name: 'Melissa Elliott' },
-        { id: 8, name: 'Cheryl James' },
-        { id: 9, name: 'Tarik Trotter' },
-        { id: 10, name: 'Sandra Denton' }
+        { id: 1, name: 'Deaquanita Harris', locationId: 2 },
+        { id: 2, name: 'Curtis Jackson', locationId: 1 },
+        { id: 3, name: 'Robinson Vilmont', locationId: 1 },
+        { id: 4, name: 'Jeremia Henderson', locationId: 3 },
+        { id: 5, name: 'OShea Jackson', locationId: 6 },
+        { id: 6, name: 'Andre Benjamin', locationId: 5 },
+        { id: 7, name: 'Melissa Elliott', locationId: 1 },
+        { id: 8, name: 'Cheryl James', locationId: 2 },
+        { id: 9, name: 'Tarik Trotter', locationId: 6 },
+        { id: 10, name: 'Sandra Denton', locationId: 4 }
     ],
 
     servicesName: [
@@ -63,18 +63,18 @@ const database = {
         { id: 18, serviceId: 11, parkId: 6 },
     ],
 
-    // guestActivity: [
-    //     { id: 1, guestId: 1, serviceID: 12 },
-    //     { id: 2, guestId: 2, serviceID: 8 },
-    //     { id: 3, guestId: 3, serviceID: 10 },
-    //     { id: 4, guestId: 4, serviceID: 1 },
-    //     { id: 5, guestId: 5, serviceID: 2 },
-    //     { id: 6, guestId: 6, serviceID: 4 },
-    //     { id: 7, guestId: 7, serviceID: 4 },
-    //     { id: 8, guestId: 8, serviceID: 13 },
-    //     { id: 9, guestId: 9, serviceID: 7 },
-    //     { id: 10, guestId: 10, serviceID: 5 },
-    // ]
+    guestLocation: [
+        { id: 1, guestId: 1, parkId: 12 },
+        { id: 2, guestId: 2, parkId: 8 },
+        { id: 3, guestId: 3, parkId: 10 },
+        { id: 4, guestId: 4, parkId: 1 },
+        { id: 5, guestId: 5, parkId: 2 },
+        { id: 6, guestId: 6, parkId: 4 },
+        { id: 7, guestId: 7, parkId: 4 },
+        { id: 8, guestId: 8, parkId: 13 },
+        { id: 9, guestId: 9, parkId: 7 },
+        { id: 10, guestId: 10, parkId: 5 },
+    ]
 
 }
 

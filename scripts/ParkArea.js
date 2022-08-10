@@ -1,5 +1,5 @@
 //import in needed objects from database. need the getParkArea for park area names and id and services function as well.
-import { getParkArea, getParkAreaServices, getServicesName } from "./database.js";
+import { getParkArea, getParkAreaServices, getServicesName, getGuests } from "./database.js";
 import { servicesProvided } from "./Services.js";
 
 //may need two functions to provide the correct information...
@@ -11,23 +11,41 @@ import { servicesProvided } from "./Services.js";
 const parkAreas = getParkArea(); //id:, name:
 const parkAreaServices = getParkAreaServices() //id:, serviceId: parkId:
 const servicesName = getServicesName() //id:, name:
+const guestObject = getGuests()
 
 
-/*** GO TO SERVICE MODULE
-This module needs to create the following html (singular responsibility principle):
+document.addEventListener(
+    "click",
+    (clickEvent) => {
+        const itemClicked = clickEvent.target
+        if (itemClicked.id.startsWith("parkAreas")) {
+            const [, parkAreasId] = itemClicked.id.split("--")
 
-ex: 
-Chamfort River (parkArea)
-  - Rafting (services offered)
-  - Canoeing
-  - Fishing
+            for (const parkObject of parkAreas) {
+                if (parkObject.id === parseInt(parkAreasId)) {
+                    const numberOfGuest = numberOfGuestInArea(parkObject)
+                    window.alert(`There are ${numberOfGuest} guest in this area`)
+                }
+            }
+        }
 
-this function needs to loop through parkAreas then services.
-Function1: create an array with the 
-*/
+    }
+)
 
-//This function should match parkAreas to parking services using the parkAreaServices constant.
-//the matching objects need to be pushed to a an empty array and returned
+
+//declare function that will count the number of guest at a particular park by 
+//conditional that if parkAreas.id === guest.locationId then count add to n (n++ counter)
+const numberOfGuestInArea = (parkObject) => {
+    //declare variable equal to 0 to add to if condition is true.
+    let n = 0
+
+    //iterate parkArea 
+    for (const guest of guestObject) {
+        if (parkObject.id === guest.locationId)
+            n++
+    }
+    return n
+}
 
 
 //declare export function to make HTML main.js
@@ -39,7 +57,7 @@ export const parkAreasList = () => {
     for (const parkObject of parkAreas) {
         const matchingName = servicesProvided(parkObject)
 
-        parkHTML += `<h3>${parkObject.name}</h3>
+        parkHTML += `<h3 id="parkAreas--${parkObject.id}">${parkObject.name}</h3>
          <ul>${matchingName}</ul>`
 
 
