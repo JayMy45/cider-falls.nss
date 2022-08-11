@@ -17,6 +17,41 @@ this function needs to loop through parkAreas then services.
 Function1: create an array with the 
 */
 
+//create click eventListener that will popUp message when services are clicked
+document.addEventListener(
+    'click',
+    (clickEvent) => {
+        const itemClicked = clickEvent.target
+        if (itemClicked.id.startsWith("services")) {
+            const [, serviceId] = itemClicked.id.split("--")
+
+            for (const nameObject of servicesName) {
+                if (nameObject.id === parseInt(serviceId)) {
+                    const servicesLocal = servicesLocation(nameObject)
+                    window.alert(`${nameObject.name} is available at ${servicesLocal}`)
+                }
+            }
+        }
+    }
+)
+
+
+//declare function that will display which locations services are offered
+const servicesLocation = (nameObject) => {
+    //declare empty that can be added upon when matches are found
+    let serviceArray = []
+    //iterate both servicesName and parkAreas...
+    for (const parkObjecti of parkAreas) {
+        for (const servIceObject of parkAreaServices) {
+            if (nameObject.id === servIceObject.serviceId && servIceObject.parkId === parkObjecti.id) {
+                serviceArray.push(parkObjecti.name)
+            }
+        }
+    }
+
+    return serviceArray.join(' and ')
+}
+
 
 //This function should match parkAreas to parking services using the parkAreaServices constant.
 //the matching objects need to be pushed to a an empty array and returned
@@ -48,7 +83,7 @@ export const servicesProvided = (currentPark) => {
 
     for (const serviceObject of servicesObjects) {
 
-        html += `<li>${serviceObject.name}</li>`
+        html += `<li id="services--${serviceObject.id}">${serviceObject.name}</li>`
     }
     return html
 }
