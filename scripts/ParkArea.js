@@ -1,5 +1,5 @@
 //import in needed objects from database. need the getParkArea for park area names and id and services function as well.
-import { getParkArea, getParkAreaServices, getServicesName, getGuests } from "./database.js";
+import { getParkArea, getGuests } from "./database.js";
 import { servicesProvided } from "./Services.js";
 
 //may need two functions to provide the correct information...
@@ -9,8 +9,6 @@ import { servicesProvided } from "./Services.js";
 
 //declare variable to store object inside...equal to invoked functions (getParkArea and getParkAreaServices)
 const parkAreas = getParkArea(); //id:, name:
-const parkAreaServices = getParkAreaServices() //id:, serviceId: parkId:
-const servicesName = getServicesName() //id:, name:
 const guestObject = getGuests()
 
 
@@ -57,11 +55,13 @@ export const parkAreasList = () => {
     for (const parkObject of parkAreas) {
         const matchingName = servicesProvided(parkObject)
 
-        parkHTML += `<h3 id="parkAreas--${parkObject.id}">${parkObject.name}</h3>
+        parkHTML += `<div class="parkAreas__details"><h3 id="parkAreas--${parkObject.id}">${parkObject.name}</h3>
          <ul>${matchingName}</ul>`
 
 
         //return HTML
+        parkHTML += `</div>`
     }
+
     return parkHTML
 }

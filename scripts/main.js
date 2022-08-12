@@ -8,25 +8,24 @@ here all modules that build html strings will be organized here.
 // import { parkAreasList } from "./ParkArea.js"
 import { Guests } from "./Guest.js"
 import { parkAreasList } from "./ParkArea.js"
-import { servicesProvided } from "./Services.js"
+import { joinServices } from "./Services.js"
+// import { makeServiceString } from "./ParkServices.js"
+
+
+
 
 const mainContainer = document.querySelector("#container")
 
 const applicationHTML = `
-<h1>Cider Falls</h1>
 
-<article class="">
-    <section class="">
-    </section>
-    <section class="">
+<article class="parkArea__article1">
+<div>${joinServices()}</div>
+    <section class="parkAreas__list">
+    <div>${parkAreasList()}</div>
     </section>
 </article>
 
-<article class="">
-    <section class="">
-
-    <div>${parkAreasList()}</div>
-    </section>
+<article class="parkArea__article2">
     <section class="">
     <h3><strong><i>Guests List</i></strong></h3>
     <div>${Guests()}</div>

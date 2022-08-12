@@ -76,6 +76,7 @@ const filterServicesByArea = (parameter) => {
 }
 
 
+
 export const servicesProvided = (currentPark) => {
 
     let html = ``
@@ -88,3 +89,44 @@ export const servicesProvided = (currentPark) => {
     return html
 }
 
+
+
+
+//*****************adding services to Main.js to input a div above places...*****************/
+
+const filterServices = () => {
+    //...declare empty array
+    let servicesArray = []  //by changing to null enables the ability ot use a blank slate...
+
+    //iterate parkAreaServices and parkArea to gain access to object keys that correspond
+    for (const service of servicesName) {
+        //conditional statement that will compare parkId of parkAreaService/serviceObject to parkAreas id)
+        servicesArray.push(service.name)
+    }
+    return servicesArray
+}
+
+
+export const joinServices = (nameObject) => {
+
+    return `<div id="join--${parkAreas.id}"><h3>Park Services: ${filterServices().join(", ")}</h3></div>`
+}
+
+document.addEventListener(
+    'click',
+    (clickEvent) => {
+        const itemClicked = clickEvent.target
+        if (itemClicked.id.startsWith("join")) {
+            const [, joinId] = itemClicked.id.split("--")
+
+            for (const nameObject of servicesName) {
+                if (joinObject.id === parseInt(joinId)) {
+                    const joinLocal = joinServices(filterServices())
+                    window.alert(`${nameObject.name} is available at ${joinLocal}`)
+                }
+            }
+        }
+    }
+)
+//objective is to provide a list of services to be displayed on the page in a div
+//declare an export function that will loop through service provided and provide each in a string 

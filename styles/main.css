@@ -1,0 +1,93 @@
+@import "details.css";
+@import url("https://fonts.googleapis.com/css?family=Comfortaa|Patua+One");
+
+.ciderfalls__image {
+    position: relative;
+    text-align: center;
+    margin: auto;
+    color: rgb(245, 239, 239);
+}
+
+.ciderfalls__header--centered {
+    position: absolute;
+    top: 70%;
+    left: 55%;
+    transform: translate(-50%, -50%);
+    font-size: 28px;
+}
+
+.ciderfalls__logo {
+    position: absolute;
+    top: -10%;
+    left: 3%;
+    opacity: 0.7;
+}
+
+/* main {
+    display: flex;
+    flex-direction: column;
+} */
+
+#container {
+    display: flex;
+    flex-direction: row;
+    border: 2px dotted black;
+}
+
+.parkAreas__details {
+    display: flex;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6);
+    box-sizing: border-box;
+    transition: 0.4s;
+    width: 11rem;
+    padding: 1rem;
+    margin: .9rem;
+    /* width: 15rem; */
+    /* text-align: center; */
+}
+
+article {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 2%;
+}
+
+.parkArea__article1 {
+    /* flex:; */
+    margin: auto;
+    border: 2px dotted black;
+}
+
+
+.parkArea__article1>* {
+    /* flex: 1; */
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: center;
+}
+
+div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-right: 20%;
+
+}
+
+.parkArea__article2>* {
+    display: flex;
+    flex-direction: column;
+    margin-right: 20%;
+    text-align: right;
+    flex-basis: 0;
+
+    padding: 0px 0px 0px 5rem;
+}
+
+.parkAreas__details {
+    display: flex;
+    flex-direction: column;
+
+}
